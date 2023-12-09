@@ -7,7 +7,7 @@ interface InputSignProps extends TextInputProps {
   onInputChange: (text: string) => void;
 }
 
-const InputSign: React.FC<InputSignProps> = ({ placeholder, secureTextEntry, onInputChange }) => {
+const InputSign: React.FC<InputSignProps> = ({ placeholder, secureTextEntry, onInputChange,children }) => {
   return (
     <TextInput
       style={style.input}
@@ -15,7 +15,7 @@ const InputSign: React.FC<InputSignProps> = ({ placeholder, secureTextEntry, onI
       secureTextEntry={secureTextEntry}
       placeholderTextColor={"#afc1c4"}
       onChangeText={(text) => onInputChange(text)}
-    />
+    >{children}</TextInput>
   );
 };
 

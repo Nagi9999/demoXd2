@@ -85,7 +85,7 @@ const SignInScreen = () => {
 
       <BtnComponent
         ScreenTitle={"Sign In & Continue"}
-        destinationScreen="SplashScreen"
+        destinationScreen="HomePage"
         customStyle={styles.btnSignIn}
         backgroundColor={btnBackgroundColor}
         color={btnTextColor}

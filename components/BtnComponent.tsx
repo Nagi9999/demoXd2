@@ -1,4 +1,4 @@
-import { useRouter } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import React from "react";
 import { View, StyleSheet, Pressable, Text, StyleProp, ViewStyle } from "react-native";
 
@@ -7,7 +7,8 @@ const screenNames = {
   SignInScreen: "/SignInScreen",
   SignUpScreen: "/SignUpScreen",
   ForgetPass: "/ForgetPass",
-  SplashScreen:"/"
+  SplashScreen:"/",
+  HomePage:"/(tabs)/(home)/home"
 } as const;
 
 // Create a union type of valid screen names
@@ -30,15 +31,19 @@ const BtnComponent: React.FC<BtnComponentProps> = ({
 }) => {
   const router = useRouter();
   return (
-    <Pressable
-      onPress={() => {
-        router.push(screenNames[destinationScreen]); // Use the provided destination screen path
-      }}
+
+    <Link href={screenNames[destinationScreen]} asChild >
+      <Pressable
+      
     >
       <View style={[customStyle, style.btnStyle, { backgroundColor }]}>
         <Text style={[style.textStyle, { color }]}>{ScreenTitle}</Text>
+       
       </View>
+      
     </Pressable>
+    </Link>
+    
   );
 };
 
