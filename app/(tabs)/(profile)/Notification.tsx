@@ -11,69 +11,25 @@ import {
   SectionList,
   SectionListRenderItem,
   ListRenderItem,
+  SectionListData,
+  DefaultSectionT,
+  Alert
+  
 } from "react-native";
 import { useRouter } from "expo-router";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import NotComponent from "../../../components/notComponent";
-// import notificationData from "../../../notification-data.json";
-
-//local data
-const notificationData: NotificationProps[] = [
-  {
-    user: "Naji",
-    id: "1",
-    image:
-      "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/31PykOKnnIL._SY445_SX342_.jpg",
-    behavior: "follow",
-    time: "1",
-    online: true,
-  },
-  {
-    user: "Joseph",
-    id: "2",
-    image:
-      "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/31PykOKnnIL._SY445_SX342_.jpg",
-    behavior: "comment",
-    time: "2",
-    online: true,
-  },
-  {
-    user: "Maria",
-    id: "3",
-    image:
-      "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/31PykOKnnIL._SY445_SX342_.jpg",
-    behavior: "like",
-    time: "3",
-    online: false,
-  },
-  {
-    user: "Majd",
-    id: "4",
-    image:
-      "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/31PykOKnnIL._SY445_SX342_.jpg",
-    behavior: "suggestion",
-    time: "27",
-    online: false,
-  },
-  {
-    user: "Peter",
-    id: "5",
-    image:
-      "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/31PykOKnnIL._SY445_SX342_.jpg",
-    behavior: "share",
-    time: "30",
-    online: true,
-  },
-];
+import notificationData from "../../../notification-data.json";
 
 interface NotificationProps {
   user: string;
   id: string;
   image: string;
-  behavior: "comment" | "follow" | "suggestion" | "like" | "share";
+  behavior: ("comment" | "follow" | "suggestion" | "like" | "share")[];
   time: string;
   online: boolean;
 }
+
 
 const Notification = () => {
   const router = useRouter();
@@ -81,10 +37,26 @@ const Notification = () => {
   const [notifications, setNotifications] = useState(notificationData);
 
   const handleDeleteItem = (itemId: string) => {
-    const updatedNotifications = notifications.filter(
-      (item) => item.id !== itemId
+    // Display an alert before deleting the notification
+    Alert.alert(
+      "Delete Notification",
+      "Are you sure you want to delete this notification?",
+      [
+        {
+          text: "Cancel",
+          style: "cancel",
+        },
+        {
+          text: "Delete",
+          onPress: () => {
+            const updatedNotifications = notifications.filter(
+              (item) => item.id !== itemId
+            );
+            setNotifications(updatedNotifications);
+          },
+        },
+      ]
     );
-    setNotifications(updatedNotifications);
   };
 
   // Filter notifications based on time
@@ -97,14 +69,15 @@ const Notification = () => {
   );
 
   // Combine data into sections
-  const sections = [
+  const sections: readonly SectionListData<
+    NotificationProps,
+    DefaultSectionT
+  >[] = [
     { title: "Today", data: todayNotifications },
     { title: "This Week", data: thisWeekNotifications },
   ];
 
-  const renderSectionHeader: SectionListRenderItem<NotificationProps> = ({
-    section,
-  }) => (
+  const renderSectionHeader: SectionListRenderItem<NotificationProps, DefaultSectionT> = ({ section }) => (
     <View style={styles.notificationsContainer}>
       <View style={styles.dateNotifications}>
         <Text style={styles.dateTitleNotifications}>{section.title}</Text>
@@ -116,6 +89,7 @@ const Notification = () => {
       </View>
     </View>
   );
+  
 
   const renderItem: ListRenderItem<NotificationProps> = ({ item }) => {
     return (
@@ -129,7 +103,7 @@ const Notification = () => {
       <View style={styles.notificationPageContainer}>
         <Pressable
           onPress={() => {
-            router.push("/SignInScreen");
+            router.push("/ProfilePage");
           }}
         >
           <Ionicons name="arrow-back-outline" size={22} color="black" />
@@ -144,6 +118,7 @@ const Notification = () => {
           renderSectionHeader={renderSectionHeader}
           keyExtractor={(item) => item.id.toString()}
           ItemSeparatorComponent={() => <View style={{ height: 20 }} />}
+          style={styles.sectionStyle}
         />
       </View>
     </SafeAreaView>
@@ -192,6 +167,7 @@ const styles = StyleSheet.create({
   },
   ListContainer: {
     marginBottom: 100,
-    paddingTop: 20,
+    paddingTop: 0,
   },
+  sectionStyle: {},
 });

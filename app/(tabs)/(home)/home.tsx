@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
   },
   groupedList:{
     marginTop:20,
-    marginBottom:40
+    marginBottom:5
   },
   typeStyle:{
     fontSize: 24,

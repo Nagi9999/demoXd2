@@ -8,7 +8,7 @@ interface NotificationData {
   user: string;
   id: string;
   image: string;
-  behavior: "comment" | "follow" | "suggestion" | "like" | "share";
+  behavior: ("comment" | "follow" | "suggestion" | "like" | "share")[];
   time: string;
   online: boolean;
 }
@@ -37,7 +37,8 @@ const NotComponent: React.FC<{
 
   //for the attached icon on the profile photo
   const renderNotificationSign = () => {
-    switch (data.behavior) {
+    const behavior = data.behavior[0];
+    switch (behavior) {
       case "comment":
         return <FontAwesome name="commenting-o" size={12} color="#00d6d8" />;
       case "follow":
@@ -55,7 +56,8 @@ const NotComponent: React.FC<{
 
   //for each notification a specific script and design
   const renderNotificationContent = () => {
-    switch (data.behavior) {
+    const behavior = data.behavior[0];
+    switch (behavior) {
       case "comment":
         return (
           <View style={styles.notScriptContainer}>

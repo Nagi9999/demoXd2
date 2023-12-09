@@ -1,7 +1,8 @@
 import { Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import { Image, StyleSheet } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
+import { Colors } from "react-native/Libraries/NewAppScreen";
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -10,7 +11,6 @@ const Layout = () => {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: "#00d6d8",
-        tabBarItemStyle: { borderTopColor: "#00d6d8", borderTopWidth: 2 },
       }}
     >
       <Tabs.Screen
@@ -18,43 +18,59 @@ const Layout = () => {
         options={{
           tabBarLabel: "Home",
           headerShown: false,
-          tabBarIcon: ({ size, color }) => (
-            <Ionicons name="home" size={15} color={color} />
+          tabBarIcon: ({ focused, color }: { focused: boolean; color: string }) => (
+            <View
+              style={[
+                styles.topBarTab,
+                { borderTopColor: focused ? "#00d6d8" : "white" },
+              ]}
+            >
+              <Ionicons name="home" size={15} color={color} />
+            </View>
           ),
         }}
       />
-      <Tabs.Screen
-        name="search"
-        options={{
-          tabBarLabel: "Search",
-          headerShown: false,
-          tabBarIcon: ({ size, color }) => (
-            <Ionicons name="search" size={15} color={color} />
-          ),
-          tabBarItemStyle: {
-            borderTopColor: "#00d6d8",
-            borderTopWidth: 0,
-          },
-        }}
-      />
+
+
+     <Tabs.Screen
+  name="search"
+  options={{
+    tabBarLabel: "Search",
+    headerShown: false,
+    tabBarIcon: ({ focused, color }: { focused: boolean; color: string }) => (
+      <View
+        style={[
+          styles.topBarTab,
+          { borderTopColor: focused ? "#00d6d8" : "white" },
+        ]}
+      >
+        <Ionicons name="search" size={15} color={color} />
+      </View>
+    ),
+  }}
+/>
+
 
       <Tabs.Screen
         name="(profile)"
         options={{
           headerShown: false,
           tabBarLabel: "Profile",
-          tabBarIcon: ({ size, color }) => (
-            <Image
+
+          tabBarIcon: ({ focused }: { focused: boolean }) => (
+            <View style={[
+              styles.topBarTab,
+              { borderTopColor: focused ? "#00d6d8" : "white" },
+            ]}>
+              <Image
               source={{
                 uri: "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/41-TmRZP71L._SY445_SX342_.jpg",
               }}
               style={styles.profileImage}
             />
+            </View>
+            
           ),
-          tabBarItemStyle: {
-            borderTopColor: "#00d6d8",
-            borderTopWidth: 0,
-          },
         }}
       />
     </Tabs>
@@ -68,5 +84,12 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
     borderRadius: 40,
+  },
+  topBarTab: {
+    alignItems: "center",
+    paddingTop: 16,
+    paddingHorizontal: 50,
+
+    borderTopWidth: 2,
   },
 });

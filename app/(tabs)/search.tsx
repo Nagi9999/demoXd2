@@ -38,10 +38,13 @@ const Search = () => {
           renderItem={({ item }) => {
             return (
               <View key={item.id} style={styles.ImageCard}>
-                <Image source={{ uri: `${item.image}` }} style={styles.image} />
+                <View style={styles.imageContainer}>
+                  <Image source={{ uri: `${item.image}` }} style={styles.image} />
+                </View>
               </View>
             );
           }}
+          
           numColumns={2}
           keyExtractor={(item) => item.id.toString()}
         />
@@ -91,17 +94,28 @@ const styles = StyleSheet.create({
   ImageCard: {
     flex: 1,
     backgroundColor: "white",
-    marginHorizontal:20,
-    marginVertical:10
+    marginHorizontal: 20,
+    marginVertical: 10,
+    shadowColor: "rgba(0, 0, 0, 0.15)",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowRadius: 4,
+    shadowOpacity: 1,
   },
-
-  image: {
-    width: 133,
-    height: 200,
-    borderWidth: 0.5,
+  imageContainer: {
     borderRadius: 4,
-    borderStyle: "solid",
-    borderColor: "rgba(0,0,0,0.1 )",
-    filter: "drop-shadow(0px 2px 4px rgba(0,0,0,0.15 ))",
+    overflow: "hidden", // Ensure the shadow is applied to the container, not the image
+    borderWidth: 0.5,
+    borderColor: "rgba(0, 0, 0, 0.1)",
   },
+  image: {
+    width: "100%",
+    height: 200,
+    
+  },
+  
+
+  
 });
