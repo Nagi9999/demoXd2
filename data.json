@@ -2,7 +2,7 @@
   {
     "image": "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/31PykOKnnIL._SY445_SX342_.jpg",
     "type": "biography",
-    "movie": "The Case For Trump",
+    "book": "The Case For Trump",
     "director": "Victor Davis Hanson",
     "rating": "7",
     "reviews": "6",
@@ -12,7 +12,7 @@
   {
     "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1530963561i/35068465.jpg",
     "type": "drama",
-    "movie": "The Last Romantics",
+    "book": "The Last Romantics",
     "director": "Tara Conklin",
     "rating": "8",
     "reviews": "7",
@@ -22,7 +22,7 @@
   {
     "image": "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/41-TmRZP71L._SY445_SX342_.jpg",
     "type": "drama",
-    "movie": "An Anonymos Girl",
+    "book": "An Anonymos Girl",
     "director": "Greer Hendricks",
     "rating": "7",
     "reviews": "158",
@@ -32,7 +32,7 @@
   {
     "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1562475601l/51072736.jpg",
     "type": "drama",
-    "movie": "Peaky Blinders",
+    "book": "Peaky Blinders",
     "director": "Caryn Mandabach",
     "rating": "9",
     "reviews": "866",
@@ -42,7 +42,7 @@
   {
     "image": "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/31PykOKnnIL._SY445_SX342_.jpg",
     "type": "biography",
-    "movie": "The Case For Trump",
+    "book": "The Case For Trump",
     "director": "Victor Davis Hanson",
     "rating": "7",
     "reviews": "6",
@@ -52,7 +52,7 @@
   {
     "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1530963561i/35068465.jpg",
     "type": "drama",
-    "movie": "The Last Romantics",
+    "book": "The Last Romantics",
     "director": "Tara Conklin",
     "rating": "8",
     "reviews": "7",
@@ -62,7 +62,7 @@
   {
     "image": "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/41-TmRZP71L._SY445_SX342_.jpg",
     "type": "drama",
-    "movie": "An Anonymos Girl",
+    "book": "An Anonymos Girl",
     "director": "Greer Hendricks",
     "rating": "7",
     "reviews": "158",
@@ -72,7 +72,7 @@
   {
     "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1562475601l/51072736.jpg",
     "type": "drama",
-    "movie": "Peaky Blinders",
+    "book": "Peaky Blinders",
     "director": "Caryn Mandabach",
     "rating": "9",
     "reviews": "866",

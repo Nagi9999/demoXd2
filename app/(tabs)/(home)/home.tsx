@@ -6,21 +6,20 @@ import {
   StyleSheet,
   SafeAreaView,
   Pressable,
-  SectionList,
   FlatList,
   ScrollView,
 } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useRouter } from "expo-router";
-import MovieCard from "../../../components/MovieCard";
-import moviesList from "../../../data.json";
-import groupedMoviesList from "../../../grouped-data.json"
+import BookCard from "../../../components/BookCard";
+import booksList from "../../../data.json";
 
 
 
 const HomePage = () => {
   const router = useRouter();
   return (
+
     <SafeAreaView style={styles.safeContainer}>
       <View style={styles.container}>
         <StatusBar barStyle={"dark-content"} />
@@ -41,14 +40,14 @@ const HomePage = () => {
         <ScrollView style={styles.groupedList}>
         <Text style={styles.typeStyle}>Bestselling</Text>
         <FlatList
-          data={moviesList}
+          data={booksList}
           renderItem={({ item }) => {
             return (
-              <MovieCard
+              <BookCard
                 key={item.id}
                 image={item.image}
                 type={item.type}
-                movie={item.movie}
+                book={item.book}
                 director={item.director}
                 rating={parseInt(item.rating)}
                 reviews={item.reviews}
@@ -61,14 +60,14 @@ const HomePage = () => {
 
         <Text style={styles.typeStyle}>Biography</Text>
         <FlatList
-          data={moviesList}
+          data={booksList}
           renderItem={({ item }) => {
             return (
-              <MovieCard
+              <BookCard
                 key={item.id}
                 image={item.image}
                 type={item.type}
-                movie={item.movie}
+                book={item.book}
                 director={item.director}
                 rating={parseInt(item.rating)}
                 reviews={item.reviews}
@@ -81,14 +80,14 @@ const HomePage = () => {
 
         <Text style={styles.typeStyle}>Drama</Text>
         <FlatList
-          data={moviesList}
+          data={booksList}
           renderItem={({ item }) => {
             return (
-              <MovieCard
+              <BookCard
                 key={item.id}
                 image={item.image}
                 type={item.type}
-                movie={item.movie}
+                book={item.book}
                 director={item.director}
                 rating={parseInt(item.rating)}
                 reviews={item.reviews}
@@ -100,20 +99,6 @@ const HomePage = () => {
         />
         </ScrollView>
         
-        {/* <SectionList 
-        sections={groupedMoviesList}
-        renderItem={({item}) => {
-          return (
-            <View>
-              <Text>{item}</Text>
-            </View>
-          );
-        }}
-        
-        renderSectionHeader={({section}) => (
-          <Text>{section.type}</Text>
-        )}
-        /> */}
       </View>
     </SafeAreaView>
   );

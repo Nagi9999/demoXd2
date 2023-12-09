@@ -2,10 +2,18 @@ import { View, Text, SafeAreaView, StyleSheet, Image, Pressable } from "react-na
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
+import userData from "../../../user-data.json"
 
 const ProfilePage = () => {
   const router = useRouter();
+
+  //assuming a user from local data 
+  const user = userData[0];
+
+
+
   return (
+
     <SafeAreaView style={styles.safeContainer}>
       <View style={styles.titleContainer}>
         <Text style={styles.titleText}>Profile</Text>
@@ -20,34 +28,30 @@ const ProfilePage = () => {
 
         
       </View>
-
-      <View style={styles.profileSection}>
+      <View style={styles.profileSection}> 
         <View>
-          <Image
-            source={{
-              uri: "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/41-TmRZP71L._SY445_SX342_.jpg",
-            }}
-            style={styles.profileImage}
-          />
+          <Image source={{ uri: user.image }} style={styles.profileImage} />
         </View>
 
         <View style={styles.nameContainer}>
-          <View style={styles.profileClass}>
-            <Text style={styles.classText}>Gold</Text>
-          </View>
-          <Text style={styles.profileName}>John Doe</Text>
+          {user.classGold === true && (  
+            <View style={styles.profileClass}>
+              <Text style={styles.classText}>Gold</Text>
+            </View> )}
+          <Text style={styles.profileName}>{user.name}</Text>
         </View>
       </View>
 
+
       <View style={styles.profileManageContainer}>
         <Text style={styles.manageTitle}>My Books</Text>
-        <View style={styles.manageSection} >
-          <Text style={styles.manageText}>Book</Text>
-          <View style={styles.bookCountContainer} >
-          <Text style={styles.booksCount} >3</Text>
-          <Ionicons name="chevron-forward" size={16} color="#D1DDDF"  />
-          </View>
+        <View style={styles.manageSection}>
+        <Text style={styles.manageText}>Book</Text>
+        <View style={styles.bookCountContainer}>
+          <Text style={styles.booksCount}>{user.bookCount}</Text>
+          <Ionicons name="chevron-forward" size={16} color="#D1DDDF" />
         </View>
+      </View>
       </View>
 
       <View style={styles.profileManageContainer}>

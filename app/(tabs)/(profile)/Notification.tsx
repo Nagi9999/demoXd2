@@ -13,8 +13,7 @@ import {
   ListRenderItem,
   SectionListData,
   DefaultSectionT,
-  Alert
-  
+  Alert,
 } from "react-native";
 import { useRouter } from "expo-router";
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -29,7 +28,6 @@ interface NotificationProps {
   time: string;
   online: boolean;
 }
-
 
 const Notification = () => {
   const router = useRouter();
@@ -59,14 +57,15 @@ const Notification = () => {
     );
   };
 
-  // Filter notifications based on time
-  const todayNotifications = notificationData.filter(
-    (item) => parseInt(item.time) < 24
-  );
+  // Filter notifications based on time and arrange them from latest to the oldest
+  const todayNotifications = notificationData
+  .filter((item) => parseInt(item.time) < 24)
+  .sort((a, b) => parseInt(a.time) - parseInt(b.time));
 
-  const thisWeekNotifications = notificationData.filter(
-    (item) => parseInt(item.time) >= 24
-  );
+const thisWeekNotifications = notificationData
+  .filter((item) => parseInt(item.time) >= 24)
+  .sort((a, b) => parseInt(a.time) - parseInt(b.time));
+
 
   // Combine data into sections
   const sections: readonly SectionListData<
@@ -77,7 +76,11 @@ const Notification = () => {
     { title: "This Week", data: thisWeekNotifications },
   ];
 
-  const renderSectionHeader: SectionListRenderItem<NotificationProps, DefaultSectionT> = ({ section }) => (
+  //render section Title based on date
+  const renderSectionHeader: SectionListRenderItem<
+    NotificationProps,
+    DefaultSectionT
+  > = ({ section }) => (
     <View style={styles.notificationsContainer}>
       <View style={styles.dateNotifications}>
         <Text style={styles.dateTitleNotifications}>{section.title}</Text>
@@ -89,7 +92,6 @@ const Notification = () => {
       </View>
     </View>
   );
-  
 
   const renderItem: ListRenderItem<NotificationProps> = ({ item }) => {
     return (

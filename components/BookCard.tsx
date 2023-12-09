@@ -6,21 +6,20 @@ import {
   Image,
 
 } from "react-native";
-import { AirbnbRating, Rating } from "react-native-ratings";
+import {  Rating } from "react-native-ratings";
 
 interface MoviesCardProps {
   image: string;
   type: string;
-  movie: string;
+  book: string;
   director: string;
   reviews: string;
   rating: number;
 }
 
-const MovieCard: React.FC<MoviesCardProps> = ({
+const BookCard: React.FC<MoviesCardProps> = ({
   image,
-  type,
-  movie,
+  book,
   director,
   reviews,
   rating,
@@ -33,8 +32,8 @@ const MovieCard: React.FC<MoviesCardProps> = ({
         resizeMode="contain"
       />
 
-      <View style={styles.movieContainer}>
-        <Text style={styles.movieText}>{movie}</Text>
+      <View style={styles.bookContainer}>
+        <Text style={styles.bookText}>{book}</Text>
       </View>
 
       <View style={styles.directorContainer}>
@@ -61,7 +60,7 @@ const MovieCard: React.FC<MoviesCardProps> = ({
   );
 };
 
-export default MovieCard;
+export default BookCard;
 
 const styles = StyleSheet.create({
   card: {
@@ -76,12 +75,12 @@ const styles = StyleSheet.create({
     height: 180,
   },
 
-  movieContainer: {
+  bookContainer: {
     marginTop: 10,
     width: 120,
     height: 40,
   },
-  movieText: {
+  bookText: {
     fontSize: 15,
     fontWeight: "bold",
     color: "#242126",

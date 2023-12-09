@@ -2,7 +2,7 @@ import { Link, useRouter } from "expo-router";
 import React from "react";
 import { View, StyleSheet, Pressable, Text, StyleProp, ViewStyle } from "react-native";
 
-// Define the valid screen names
+// used paths
 const screenNames = {
   SignInScreen: "/SignInScreen",
   SignUpScreen: "/SignUpScreen",
@@ -11,7 +11,7 @@ const screenNames = {
   HomePage:"/(tabs)/(home)/home"
 } as const;
 
-// Create a union type of valid screen names
+// to take the same type
 type ScreenName = keyof typeof screenNames;
 
 interface BtnComponentProps {

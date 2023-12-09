@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
   View,
-  Text,
   SafeAreaView,
   StyleSheet,
   TextInput,
@@ -9,13 +8,15 @@ import {
   Image,
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
-import moviesList from "../../data.json";
+import booksList from "../../data.json";
 
+
+//search from data
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredMovies = moviesList.filter((item) =>
-    item.movie.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredBooks = booksList.filter((item) =>
+    item.book.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
@@ -34,7 +35,7 @@ const Search = () => {
       <View style={styles.listContainer}>
         <FlatList
           style={styles.searchList}
-          data={filteredMovies}
+          data={filteredBooks}
           renderItem={({ item }) => {
             return (
               <View key={item.id} style={styles.ImageCard}>

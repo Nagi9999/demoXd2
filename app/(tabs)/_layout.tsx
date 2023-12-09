@@ -2,9 +2,11 @@ import { Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { Image, StyleSheet, View } from "react-native";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
-import { Colors } from "react-native/Libraries/NewAppScreen";
+import userData from "../../user-data.json"
+
 
 const Tab = createMaterialBottomTabNavigator();
+const user = userData[0];
 
 const Layout = () => {
   return (
@@ -64,7 +66,7 @@ const Layout = () => {
             ]}>
               <Image
               source={{
-                uri: "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/41-TmRZP71L._SY445_SX342_.jpg",
+                uri: user.image,
               }}
               style={styles.profileImage}
             />

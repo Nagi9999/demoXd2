@@ -1,8 +1,8 @@
 [
   {
-    "user": "Naji",
+    "user": "Elie",
     "id": "1",
-    "image": "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/31PykOKnnIL._SY445_SX342_.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Pierre-Person.jpg/400px-Pierre-Person.jpg",
     "behavior": ["follow"],
     "time": "1",
     "online": true
@@ -10,7 +10,7 @@
   {
     "user": "Joseph",
     "id": "2",
-    "image": "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/31PykOKnnIL._SY445_SX342_.jpg",
+    "image": "https://neweralive.na/storage/images/2023/may/lloyd-sikeba.jpg",
     "behavior": ["comment"],
     "time": "2",
     "online": true
@@ -18,7 +18,7 @@
   {
     "user": "Maria",
     "id": "3",
-    "image": "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/31PykOKnnIL._SY445_SX342_.jpg",
+    "image": "https://images.healthshots.com/healthshots/en/uploads/2020/12/08182549/positive-person.jpg",
     "behavior": ["like"],
     "time": "3",
     "online": false
@@ -26,7 +26,7 @@
   {
     "user": "Majd",
     "id": "4",
-    "image": "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/31PykOKnnIL._SY445_SX342_.jpg",
+    "image": "https://www.wikihow.com/images/thumb/9/90/What_type_of_person_are_you_quiz_pic.png/728px-What_type_of_person_are_you_quiz_pic.png",
     "behavior": ["suggestion"],
     "time": "40",
     "online": false
@@ -34,9 +34,9 @@
   {
     "user": "Peter",
     "id": "5",
-    "image": "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/31PykOKnnIL._SY445_SX342_.jpg",
+    "image": "https://kentuckycounselingcenter.com/wp-content/uploads/2022/01/thinking-man-gf9b9e7a8b_1920-1536x1373.png",
     "behavior": ["share"],
-    "time": "30",
+    "time": "60",
     "online": true
   }
 ]
