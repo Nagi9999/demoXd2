@@ -15,6 +15,9 @@ import { useRouter } from "expo-router";
 const SignUpScreen = () => {
   const router = useRouter();
   const [checked, setChecked] = useState(true);
+  const [name, SetName] = useState("");
+  const [email, SetEmail] = useState("");
+  const [password, SetPassword] = useState("");
 
   return (
     <SafeAreaView style={style.container}>
@@ -33,23 +36,25 @@ const SignUpScreen = () => {
         />
       </Pressable>
 
-      <Text style={style.signUp}>Sign Up</Text>
-
       <View style={style.multiInput}>
         <InputSign
           placeholder="Name"
           secureTextEntry={false}
-          onInputChange={() => {}}
+          text={name}
+          onInputChange={SetName}
         />
         <InputSign
           placeholder="Email"
           secureTextEntry={false}
-          onInputChange={() => {}}
+          text={email}
+          onInputChange={SetEmail}
         />
+
         <InputSign
           placeholder="Password"
           secureTextEntry={true}
-          onInputChange={() => {}}
+          text={password}
+          onInputChange={SetPassword}
         />
       </View>
 

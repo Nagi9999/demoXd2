@@ -14,14 +14,18 @@ import InputSign from "../components/InputSign";
 import { useRouter } from "expo-router";
 
 const SignInScreen = () => {
-
   const router = useRouter();
   const [checked, setChecked] = useState(true);
+  const [email, SetEmail] = useState("");
+  const [password, SetPassword] = useState("");
+
   const [btnBackgroundColor, setBtnBackgroundColor] = useState(
     "rgba(0, 214, 216, 0.1)"
   );
   const [btnTextColor, setBtnTextColor] = useState("rgba(0, 214, 216, 1)");
 
+
+  //change the button style based on the input
   const handleInputChange = (text: string, inputType: string) => {
     if (inputType === "password" && text.length > 0) {
       setBtnBackgroundColor("rgba(0, 214, 216, 1)");
@@ -29,6 +33,13 @@ const SignInScreen = () => {
     } else {
       setBtnBackgroundColor("rgba(0, 214, 216, 0.1)");
       setBtnTextColor("rgba(0, 214, 216, 1)");
+    }
+
+    // Update the state based on the input type
+    if (inputType === "email") {
+      SetEmail(text);
+    } else if (inputType === "password") {
+      SetPassword(text);
     }
   };
 
@@ -52,11 +63,13 @@ const SignInScreen = () => {
         <InputSign
           placeholder="Email"
           secureTextEntry={false}
+          text={email}
           onInputChange={(text) => handleInputChange(text, "email")}
         />
         <InputSign
           placeholder="Password"
           secureTextEntry={true}
+          text={password}
           onInputChange={(text) => handleInputChange(text, "password")}
         />
       </View>
@@ -76,7 +89,7 @@ const SignInScreen = () => {
 
         <Pressable
           onPress={() => {
-          router.push("/ForgetPass");
+            router.push("/ForgetPass");
           }}
         >
           <Text style={styles.checkboxText}>Forgot your Password?</Text>

@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useState } from "react";
 import {
   Text,
   View,
@@ -15,7 +15,9 @@ import { useRouter } from "expo-router";
 
 const ForgetPass = () => {
 
-    const router = useRouter();
+  const router = useRouter();
+  const [email, SetEmail] = useState("");
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle={"dark-content"} />
@@ -34,8 +36,13 @@ const ForgetPass = () => {
       <Text style={styles.forgotPassword}>Forgot Password</Text>
 
       <View style={styles.emailContainer}>
-        <InputSign placeholder="Email" secureTextEntry={false}  onInputChange={() => {}} />
-        <BtnComponent
+      <InputSign
+          placeholder="Email"
+          secureTextEntry={false}
+          text={email}
+          onInputChange={SetEmail}
+        />
+                <BtnComponent
           ScreenTitle={"Send Email"}
           destinationScreen={"SplashScreen"}
           customStyle={styles.btnSend}

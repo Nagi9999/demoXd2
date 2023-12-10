@@ -4,17 +4,24 @@ import { TextInput, StyleSheet, TextInputProps } from "react-native";
 interface InputSignProps extends TextInputProps {
   placeholder: string;
   secureTextEntry?: boolean;
+  text:string;
   onInputChange: (text: string) => void;
 }
 
-const InputSign: React.FC<InputSignProps> = ({ placeholder, secureTextEntry, onInputChange,children }) => {
+const InputSign: React.FC<InputSignProps> = ({ placeholder, secureTextEntry,text, onInputChange,children}) => {
+
+  
+
   return (
     <TextInput
       style={style.input}
       placeholder={placeholder}
       secureTextEntry={secureTextEntry}
       placeholderTextColor={"#afc1c4"}
-      onChangeText={(text) => onInputChange(text)}
+      value={text}
+      onChangeText={onInputChange}
+      autoCorrect={false}
+      autoCapitalize={"none"}
     >{children}</TextInput>
   );
 };
