@@ -19,12 +19,13 @@ import { useRouter } from "expo-router";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import NotComponent from "../../../components/notComponent";
 import notificationData from "../../../notification-data.json";
+import NotificationsList from "../../../components/notificationsList";
 
 interface NotificationProps {
   user: string;
   id: string;
   image: string;
-  behavior: ("comment" | "follow" | "suggestion" | "like" | "share")[];
+  behavior: ["comment", "follow" ,"suggestion" , "like" , "share"];
   time: string;
   online: boolean;
 }
@@ -34,69 +35,11 @@ const Notification = () => {
 
   const [notifications, setNotifications] = useState(notificationData);
 
-  const handleDeleteItem = (itemId: string) => {
-    // Display an alert before deleting the notification
-    Alert.alert(
-      "Delete Notification",
-      "Are you sure you want to delete this notification?",
-      [
-        {
-          text: "Cancel",
-          style: "cancel",
-        },
-        {
-          text: "Delete",
-          onPress: () => {
-            const updatedNotifications = notifications.filter(
-              (item) => item.id !== itemId
-            );
-            setNotifications(updatedNotifications);
-          },
-        },
-      ]
+  const deleteNotification = (itemId: string) => {
+    const updatedNotifications = notifications.filter(
+      (item) => item.id !== itemId
     );
-  };
-
-  // Filter notifications based on time and arrange them from latest to the oldest
-  const todayNotifications = notificationData
-  .filter((item) => parseInt(item.time) < 24)
-  .sort((a, b) => parseInt(a.time) - parseInt(b.time));
-
-const thisWeekNotifications = notificationData
-  .filter((item) => parseInt(item.time) >= 24)
-  .sort((a, b) => parseInt(a.time) - parseInt(b.time));
-
-
-  // Combine data into sections
-  const sections: readonly SectionListData<
-    NotificationProps,
-    DefaultSectionT
-  >[] = [
-    { title: "Today", data: todayNotifications },
-    { title: "This Week", data: thisWeekNotifications },
-  ];
-
-  //render section Title based on date
-  const renderSectionHeader: SectionListRenderItem<
-    NotificationProps,
-    DefaultSectionT
-  > = ({ section }) => (
-    <View style={styles.notificationsContainer}>
-      <View style={styles.dateNotifications}>
-        <Text style={styles.dateTitleNotifications}>{section.title}</Text>
-        <Text style={styles.notificationsCount}>
-          {section.title === "Today"
-            ? todayNotifications.length
-            : thisWeekNotifications.length}
-        </Text>
-      </View>
-    </View>
-  );
-
-  const renderItem: ListRenderItem<NotificationProps> = ({ item }) => {
-    return (
-      <NotComponent data={item} onDelete={() => handleDeleteItem(item.id)} />
-    );
+    setNotifications(updatedNotifications);
   };
 
   return (
@@ -113,16 +56,8 @@ const thisWeekNotifications = notificationData
         <Text style={styles.notoficationPageTitle}>Notification</Text>
       </View>
 
-      <View style={styles.ListContainer}>
-        <SectionList
-          sections={sections}
-          renderItem={renderItem}
-          renderSectionHeader={renderSectionHeader}
-          keyExtractor={(item) => item.id.toString()}
-          ItemSeparatorComponent={() => <View style={{ height: 20 }} />}
-          style={styles.sectionStyle}
-        />
-      </View>
+      <NotificationsList notifications={notifications} deleteNotification={deleteNotification}  />
+
     </SafeAreaView>
   );
 };

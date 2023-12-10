@@ -5,6 +5,7 @@ import { Link } from "expo-router";
 import Swipeout from "react-native-swipeout";
 import userData from "../user-data.json";
 
+
 //assuming a user from local data
 const user = userData[0];
 
@@ -12,7 +13,7 @@ interface NotificationData {
   user: string;
   id: string;
   image: string;
-  behavior: ("comment" | "follow" | "suggestion" | "like" | "share")[];
+  behavior: string[];
   time: string;
   online: boolean;
 }
@@ -25,7 +26,6 @@ const renderNotificationActive = (online: boolean) => {
   return null;
 };
 
-//to hide follow/following based on the notifications data
 const NotComponent: React.FC<{
   data: NotificationData;
   onDelete: () => void;
