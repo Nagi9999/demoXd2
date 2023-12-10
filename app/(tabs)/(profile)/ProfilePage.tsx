@@ -18,7 +18,7 @@ const ProfilePage = () => {
       <View style={styles.titleContainer}>
         <Text style={styles.titleText}>Profile</Text>
         <Pressable onPress={() => {
-          router.push("/Notification");
+          router.push("/NotificationPage");
         }} >
         <View style={styles.notificationIcon}>
           <View style={styles.notificationActive} />

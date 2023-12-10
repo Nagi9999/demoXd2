@@ -12,7 +12,7 @@ import {
   Alert,
 } from "react-native";
 
-import NotComponent from "../components/notComponent";
+import NotComponent from "./notificationItem";
 
 
 interface NotificationListProps {

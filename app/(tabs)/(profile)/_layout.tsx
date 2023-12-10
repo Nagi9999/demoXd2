@@ -7,7 +7,7 @@ const Layout = () => {
     <Stack.Screen name="ProfilePage" options={{
       headerShown:false
     }} />
-    <Stack.Screen name="Notification" options={{
+    <Stack.Screen name="NotificationPage" options={{
       headerShown:false
     }} />
   </Stack>

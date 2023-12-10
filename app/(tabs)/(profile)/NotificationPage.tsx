@@ -14,7 +14,7 @@ import notificationData from "../../../notification-data.json";
 import NotificationsList from "../../../components/notificationsList";
 
 
-const Notification = () => {
+const NotificationPage = () => {
   const router = useRouter();
 
   const [notifications, setNotifications] = useState(notificationData);
@@ -46,7 +46,7 @@ const Notification = () => {
   );
 };
 
-export default Notification;
+export default NotificationPage;
 
 const styles = StyleSheet.create({
   safeContainer: {
