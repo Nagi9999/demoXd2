@@ -1,13 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   View,
   Text,
   StyleSheet,
-  SafeAreaView,
-  StatusBar,
-  Pressable,
-  Image,
-  FlatList,
+ 
   SectionList,
   SectionListRenderItem,
   ListRenderItem,
@@ -15,8 +11,7 @@ import {
   DefaultSectionT,
   Alert,
 } from "react-native";
-import { useRouter } from "expo-router";
-import Ionicons from "@expo/vector-icons/Ionicons";
+
 import NotComponent from "../components/notComponent";
 
 
@@ -118,23 +113,7 @@ export default NotificationsList
 
 
 const styles = StyleSheet.create({
-    safeContainer: {
-      flex: 1,
-      backgroundColor: "#ffffff",
-    },
-    notificationPageContainer: {
-      flexDirection: "row",
-      marginTop: 56,
-      marginBottom: 12,
-      marginHorizontal: 14,
-      alignItems: "center",
-    },
-    notoficationPageTitle: {
-      fontSize: 17,
-      fontWeight: "bold",
-      textAlign: "center",
-      marginHorizontal: 110,
-    },
+    
     notificationsContainer: {
       width: 335,
       marginHorizontal: 20,

@@ -6,29 +6,13 @@ import {
   SafeAreaView,
   StatusBar,
   Pressable,
-  Image,
-  FlatList,
-  SectionList,
-  SectionListRenderItem,
-  ListRenderItem,
-  SectionListData,
-  DefaultSectionT,
-  Alert,
+ 
 } from "react-native";
 import { useRouter } from "expo-router";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import NotComponent from "../../../components/notComponent";
 import notificationData from "../../../notification-data.json";
 import NotificationsList from "../../../components/notificationsList";
 
-interface NotificationProps {
-  user: string;
-  id: string;
-  image: string;
-  behavior: ["comment", "follow" ,"suggestion" , "like" , "share"];
-  time: string;
-  online: boolean;
-}
 
 const Notification = () => {
   const router = useRouter();
@@ -53,7 +37,7 @@ const Notification = () => {
         >
           <Ionicons name="arrow-back-outline" size={22} color="black" />
         </Pressable>
-        <Text style={styles.notoficationPageTitle}>Notification</Text>
+        <Text style={styles.notificationPageTitle}>Notification</Text>
       </View>
 
       <NotificationsList notifications={notifications} deleteNotification={deleteNotification}  />
@@ -76,35 +60,10 @@ const styles = StyleSheet.create({
     marginHorizontal: 14,
     alignItems: "center",
   },
-  notoficationPageTitle: {
+  notificationPageTitle: {
     fontSize: 17,
     fontWeight: "bold",
     textAlign: "center",
     marginHorizontal: 110,
-  },
-  notificationsContainer: {
-    width: 335,
-    marginHorizontal: 20,
-  },
-  dateNotifications: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginVertical: 20,
-  },
-  dateTitleNotifications: {
-    fontSize: 17,
-    fontWeight: "bold",
-    color: "#242126",
-  },
-  notificationsCount: {
-    fontSize: 17,
-    fontWeight: "bold",
-    color: "#00d6d8",
-  },
-  ListContainer: {
-    marginBottom: 100,
-    paddingTop: 0,
-  },
-  sectionStyle: {},
+  }
 });
