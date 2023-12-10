@@ -1,11 +1,9 @@
 import { Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { Image, StyleSheet, View } from "react-native";
-import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import userData from "../../user-data.json"
 
 
-const Tab = createMaterialBottomTabNavigator();
 const user = userData[0];
 
 const Layout = () => {
@@ -41,7 +39,7 @@ const Layout = () => {
     headerShown: false,
     tabBarIcon: ({ focused, color }: { focused: boolean; color: string }) => (
       <View
-        style={[
+        style={[//for the top tab boder color
           styles.topBarTab,
           { borderTopColor: focused ? "#00d6d8" : "white" },
         ]}
