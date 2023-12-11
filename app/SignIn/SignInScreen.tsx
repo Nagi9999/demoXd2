@@ -24,22 +24,21 @@ const SignInScreen = () => {
   );
   const [btnTextColor, setBtnTextColor] = useState("rgba(0, 214, 216, 1)");
 
-
   //change the button style based on the input
   const handleInputChange = (text: string, inputType: string) => {
-    if (inputType === "password" && text.length > 0) {
+
+    if (inputType === "email") {
+      SetEmail(text);
+    } else if (inputType === "password") {
+      SetPassword(text);
+    }
+    // Check if both email and password are filled
+    if (email.length > 0 && password.length > 0) {
       setBtnBackgroundColor("rgba(0, 214, 216, 1)");
       setBtnTextColor("#ffffff");
     } else {
       setBtnBackgroundColor("rgba(0, 214, 216, 0.1)");
       setBtnTextColor("rgba(0, 214, 216, 1)");
-    }
-
-    // Update the state based on the input type
-    if (inputType === "email") {
-      SetEmail(text);
-    } else if (inputType === "password") {
-      SetPassword(text);
     }
   };
 

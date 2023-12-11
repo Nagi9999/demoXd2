@@ -14,7 +14,7 @@ import userData from "../../../user-data.json";
 const ProfilePage = () => {
   const router = useRouter();
 
-  //assuming a user from local data
+  //assuming a user from local user-data
   const user = userData[0];
 
   return (
