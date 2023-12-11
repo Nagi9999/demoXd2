@@ -8,9 +8,9 @@ import {
   SafeAreaView,
 } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import BtnComponent from "../components/BtnComponent";
+import BtnComponent from "../../components/BtnComponent";
 import { Entypo } from "@expo/vector-icons";
-import InputSign from "../components/InputSign";
+import InputSign from "../../components/InputSign";
 import { useRouter } from "expo-router";
 
 const SignInScreen = () => {
@@ -89,7 +89,7 @@ const SignInScreen = () => {
 
         <Pressable
           onPress={() => {
-            router.push("/ForgetPass");
+            router.push("./ForgetPass");
           }}
         >
           <Text style={styles.checkboxText}>Forgot your Password?</Text>

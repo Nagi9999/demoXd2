@@ -1,75 +1,80 @@
-import { View, Text, SafeAreaView, StyleSheet, Image, Pressable } from "react-native";
+import {
+  View,
+  Text,
+  SafeAreaView,
+  StyleSheet,
+  Image,
+  Pressable,
+} from "react-native";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
-import { useRouter } from "expo-router";
-import userData from "../../../user-data.json"
+import { Link, useRouter } from "expo-router";
+import userData from "../../../user-data.json";
 
 const ProfilePage = () => {
   const router = useRouter();
 
-  //assuming a user from local data 
+  //assuming a user from local data
   const user = userData[0];
 
-
-
   return (
-
     <SafeAreaView style={styles.safeContainer}>
       <View style={styles.titleContainer}>
         <Text style={styles.titleText}>Profile</Text>
-        <Pressable onPress={() => {
-          router.push("/NotificationPage");
-        }} >
-        <View style={styles.notificationIcon}>
-          <View style={styles.notificationActive} />
-          <Ionicons name="notifications-outline" size={24} color="black" />
-        </View>
+        <Pressable
+          onPress={() => {
+            router.push("/NotificationPage");
+          }}
+        >
+          <View style={styles.notificationIcon}>
+            <View style={styles.notificationActive} />
+            <Ionicons name="notifications-outline" size={24} color="black" />
+          </View>
         </Pressable>
-
-        
       </View>
-      <View style={styles.profileSection}> 
+      <View style={styles.profileSection}>
         <View>
           <Image source={{ uri: user.image }} style={styles.profileImage} />
         </View>
 
         <View style={styles.nameContainer}>
-          {user.classGold === true && (  
+          {user.classGold === true && (
             <View style={styles.profileClass}>
               <Text style={styles.classText}>Gold</Text>
-            </View> )}
+            </View>
+          )}
           <Text style={styles.profileName}>{user.name}</Text>
         </View>
       </View>
 
-
       <View style={styles.profileManageContainer}>
         <Text style={styles.manageTitle}>My Books</Text>
         <View style={styles.manageSection}>
-        <Text style={styles.manageText}>Book</Text>
-        <View style={styles.bookCountContainer}>
-          <Text style={styles.booksCount}>{user.bookCount}</Text>
-          <Ionicons name="chevron-forward" size={16} color="#D1DDDF" />
+          <Text style={styles.manageText}>Book</Text>
+          <View style={styles.bookCountContainer}>
+            <Text style={styles.booksCount}>{user.bookCount}</Text>
+            <Ionicons name="chevron-forward" size={16} color="#D1DDDF" />
+          </View>
         </View>
-      </View>
       </View>
 
       <View style={styles.profileManageContainer}>
         <Text style={styles.manageTitle}>Account</Text>
-        <View style={styles.manageSection} >
+        <View style={styles.manageSection}>
           <Text style={styles.manageText}>Edit Profile</Text>
-          <View style={styles.bookCountContainer} >
-          <Ionicons name="chevron-forward" size={16} color="#D1DDDF"  />
+          <View style={styles.bookCountContainer}>
+            <Ionicons name="chevron-forward" size={16} color="#D1DDDF" />
           </View>
         </View>
 
-        <View style={styles.manageSection} >
-          <Text style={styles.manageText}>Log out</Text>
-          <View style={styles.bookCountContainer} >
-          <Ionicons name="chevron-forward" size={16} color="#D1DDDF"  />
+        <Link href={"/SignIn/SignInScreen"}>
+          <View style={styles.manageSection}>
+            <Text style={styles.manageText}>Log out</Text>
+            <View style={styles.bookCountContainer}>
+              <Ionicons name="chevron-forward" size={16} color="#D1DDDF" />
+            </View>
           </View>
-        </View>
-        
+        </Link>
       </View>
     </SafeAreaView>
   );
@@ -116,7 +121,7 @@ const styles = StyleSheet.create({
     height: 80,
     marginHorizontal: 20,
     flexDirection: "row",
-    marginBottom:50
+    marginBottom: 50,
   },
 
   profileImage: {
@@ -159,25 +164,25 @@ const styles = StyleSheet.create({
   },
   manageSection: {
     marginTop: 10,
-    width:"100%",
-    height:44,
-    flexDirection:"row",
-    justifyContent:"space-between",
-    alignItems:"center"
+    width: "100%",
+    height: 44,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   manageText: {
     fontSize: 17,
     fontWeight: "bold",
     color: "#242126",
   },
-  bookCountContainer:{
-    flexDirection:"row",
-    alignItems:"center"
+  bookCountContainer: {
+    flexDirection: "row",
+    alignItems: "center",
   },
-  booksCount:{
-    fontWeight:"bold",
-    fontSize:17,
-    color:"#00d6d8",
-    marginHorizontal:10
-  }
+  booksCount: {
+    fontWeight: "bold",
+    fontSize: 17,
+    color: "#00d6d8",
+    marginHorizontal: 10,
+  },
 });

@@ -8,8 +8,8 @@ import {
   Pressable,
 } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import BtnComponent from "../components/BtnComponent";
-import InputSign from "../components/InputSign";
+import BtnComponent from "../../components/BtnComponent";
+import InputSign from "../../components/InputSign";
 import { useRouter } from "expo-router";
 
 
@@ -23,7 +23,7 @@ const ForgetPass = () => {
       <StatusBar barStyle={"dark-content"} />
       <Pressable
         onPress={() => {
-          router.push("/SignInScreen");
+          router.push("./SignInScreen");
         }}
       >
         <Ionicons
@@ -42,7 +42,7 @@ const ForgetPass = () => {
           text={email}
           onInputChange={SetEmail}
         />
-                <BtnComponent
+      <BtnComponent
           ScreenTitle={"Send Email"}
           destinationScreen={"SplashScreen"}
           customStyle={styles.btnSend}

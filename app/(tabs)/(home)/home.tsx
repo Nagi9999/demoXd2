@@ -25,7 +25,7 @@ const HomePage = () => {
         <StatusBar barStyle={"dark-content"} />
         <Pressable
           onPress={() => {
-            router.push("/SignInScreen");
+            router.push("/SignIn/SignInScreen");
           }}
         >
           <Ionicons

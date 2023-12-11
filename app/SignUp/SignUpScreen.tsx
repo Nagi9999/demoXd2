@@ -8,8 +8,8 @@ import {
   SafeAreaView,
 } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import BtnComponent from "../components/BtnComponent";
-import InputSign from "../components/InputSign";
+import BtnComponent from "../../components/BtnComponent";
+import InputSign from "../../components/InputSign";
 import { useRouter } from "expo-router";
 
 const SignUpScreen = () => {

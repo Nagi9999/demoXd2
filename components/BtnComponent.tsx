@@ -4,9 +4,8 @@ import { View, StyleSheet, Pressable, Text, StyleProp, ViewStyle } from "react-n
 
 // used paths
 const screenNames = {
-  SignInScreen: "/SignInScreen",
-  SignUpScreen: "/SignUpScreen",
-  ForgetPass: "/ForgetPass",
+  SignInScreen: "/SignIn/SignInScreen",
+  SignUpScreen: "/SignUp/SignUpScreen",
   SplashScreen:"/",
   HomePage:"/(tabs)/(home)/home"
 } as const;

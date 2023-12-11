@@ -7,10 +7,9 @@ export default function RootLayout() {
   return (
       <Stack>
         <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="SignInScreen" options={{ headerShown: false }} />
+        <Stack.Screen name="SignIn" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="SignUpScreen" options={{ headerShown: false }} />
-        <Stack.Screen name="ForgetPass" options={{ headerShown: false }} />
+        <Stack.Screen name="SignUp" options={{ headerShown: false }} />
       </Stack>
   );
 }
